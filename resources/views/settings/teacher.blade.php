@@ -275,38 +275,6 @@
                 </div>
 
                 <!-- Sección de Preferencias -->
-                <div class="settings-section">
-                    <h2><i class="fas fa-cog"></i> Preferencias</h2>
-                    <div class="preferences">
-                        <div class="preference-item">
-                            <label class="checkbox-label">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Recibir notificaciones por correo electrónico
-                            </label>
-                        </div>
-                        <div class="preference-item">
-                            <label class="checkbox-label">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Mostrar recordatorios de calificaciones pendientes
-                            </label>
-                        </div>
-                        <div class="preference-item">
-                            <label class="checkbox-label">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Notificaciones de nuevas entregas de estudiantes
-                            </label>
-                        </div>
-                        <div class="preference-item">
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                Modo oscuro (próximamente)
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 @endsection 

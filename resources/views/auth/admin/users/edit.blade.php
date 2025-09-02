@@ -53,30 +53,7 @@
                     <label for="teacher_code" class="form-label">Código de Profesor</label>
                     <input type="text" name="teacher_code" id="teacher_code" class="form-control" value="{{ $user->teacher_code }}">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Materias que puede impartir</label>
-                    <div class="table-responsive">
-                        <table class="table table-bordered align-middle" style="background: #fff;">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Materia</th>
-                                    <th class="text-center">Puede impartir</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach(\App\Models\Subject::all() as $subject)
-                                <tr>
-                                    <td>{{ $subject->name }}</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="subjects[]" value="{{ $subject->id }}" id="subject_{{ $subject->id }}" {{ $user->subjects->contains($subject->id) ? 'checked' : '' }}>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <small class="form-text text-muted">Marca las materias que el profesor puede impartir.</small>
-                </div>
+                
                 @endif
                 <div class="mb-3">
                     <label for="password" class="form-label">Nueva Contraseña (opcional)</label>
