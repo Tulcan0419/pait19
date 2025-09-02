@@ -12,6 +12,14 @@ class StudentProfessionalPracticesController extends Controller
 {
     public function uploadDocument(Request $request)
     {
+        // Obtener el estudiante autenticado
+        $student = Auth::guard('student')->user();
+        
+        // Verificar que el estudiante esté en 3° o 4° semestre
+        if ($student->semester < 3 || $student->semester > 4) {
+            return redirect()->back()->with('error', 'No puedes acceder todavía a este sistema. Solo los estudiantes de 3° y 4° semestre pueden subir documentos de prácticas.');
+        }
+
         // Validar la solicitud
         $validator = Validator::make($request->all(), [
             'document_type' => 'required|string',
@@ -61,6 +69,12 @@ class StudentProfessionalPracticesController extends Controller
         // Obtener el estudiante autenticado
         $student = Auth::guard('student')->user();
         
+        // Verificar que el estudiante esté en 3° o 4° semestre
+        if ($student->semester < 3 || $student->semester > 4) {
+            return view('auth.student.professional_practices.index', compact('student'))
+                ->with('access_restricted', true);
+        }
+        
         // Obtener los documentos del estudiante autenticado con información del tutor
         $uploadedDocuments = $student->documents()
             ->with(['student.activeTutorAssignment.teacher', 'activeTutor'])
@@ -73,6 +87,14 @@ class StudentProfessionalPracticesController extends Controller
     // Método para descargar documentos
     public function downloadDocument(Document $document)
     {
+        // Obtener el estudiante autenticado
+        $student = Auth::guard('student')->user();
+        
+        // Verificar que el estudiante esté en 3° o 4° semestre
+        if ($student->semester < 3 || $student->semester > 4) {
+            abort(403, 'No puedes acceder todavía a este sistema. Solo los estudiantes de 3° y 4° semestre pueden acceder a los documentos de prácticas.');
+        }
+        
         // Asegúrate de que el estudiante autenticado sea el dueño del documento
         if (Auth::id() !== $document->student_id) {
             abort(403, 'Acceso no autorizado.');
@@ -84,6 +106,14 @@ class StudentProfessionalPracticesController extends Controller
     // Método para eliminar documentos
     public function destroy(Document $document)
     {
+        // Obtener el estudiante autenticado
+        $student = Auth::guard('student')->user();
+        
+        // Verificar que el estudiante esté en 3° o 4° semestre
+        if ($student->semester < 3 || $student->semester > 4) {
+            return redirect()->back()->with('error', 'No puedes acceder todavía a este sistema. Solo los estudiantes de 3° y 4° semestre pueden eliminar documentos de prácticas.');
+        }
+        
         // Asegúrate de que el estudiante autenticado sea el dueño del documento
         if (Auth::id() !== $document->student_id) {
             abort(403, 'Acceso no autorizado.');

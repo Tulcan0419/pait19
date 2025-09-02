@@ -7,6 +7,46 @@
 
             <!-- Sección de Prácticas -->
             <div class="practices-container">
+                
+                @if(isset($access_restricted) && $access_restricted)
+                    <!-- Mensaje de Acceso Restringido -->
+                    <div class="access-restricted-message">
+                        <div class="restricted-content">
+                            <div class="restricted-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h2>No puedes acceder todavía a este sistema</h2>
+                            <p class="restricted-description">
+                                El gestor de documentos de prácticas está disponible únicamente para estudiantes de <strong>3° y 4° semestre</strong>.
+                            </p>
+                            <div class="current-semester-info">
+                                <div class="semester-badge">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Tu semestre actual: <strong>{{ $student->semester }}° semestre</strong></span>
+                                </div>
+                            </div>
+                            <div class="access-info">
+                                <h3>¿Cuándo podrás acceder?</h3>
+                                <ul class="access-list">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <strong>3° Semestre:</strong> Acceso a Prácticas Preprofesionales (96 horas)
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <strong>4° Semestre:</strong> Acceso a Prácticas Profesionales (146 horas)
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="contact-info">
+                                <p>
+                                    <i class="fas fa-info-circle"></i>
+                                    Si crees que esto es un error, contacta al coordinador académico.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @else
                 <div class="practices-header">
                     <h1><i class="fas fa-briefcase"></i>Gestión de {{ $student->semester >= 4 ? "Prácticas Profesionales" : "Prácticas Preprofesionales" }}</h1>
                     <p>Aquí puedes subir los documentos requeridos para tus {{ $student->semester >= 4 ? "prácticas profesionales" : "prácticas preprofesionales" }}, revisar el estado de tus envíos, ver tu tutor asignado y descargar plantillas.</p>
@@ -566,4 +606,5 @@
         }
     });
 </script>
+                @endif
 @endsection

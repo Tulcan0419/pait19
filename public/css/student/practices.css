@@ -1381,4 +1381,179 @@
         padding: 10px 20px;
         font-size: 0.9rem;
     }
+}
+
+/* ===== ESTILOS PARA MENSAJE DE ACCESO RESTRINGIDO ===== */
+.access-restricted-message {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: var(--shadow-medium);
+}
+
+.restricted-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.restricted-icon {
+    font-size: 4rem;
+    color: var(--warning-color);
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.access-restricted-message h2 {
+    color: var(--dark-color);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.restricted-description {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    margin: 0 0 30px 0;
+    line-height: 1.6;
+}
+
+.current-semester-info {
+    margin-bottom: 30px;
+}
+
+.semester-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.semester-badge i {
+    font-size: 1.2rem;
+}
+
+.access-info {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-light);
+    text-align: left;
+}
+
+.access-info h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.access-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.access-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.access-list li:last-child {
+    border-bottom: none;
+}
+
+.access-list li i {
+    color: var(--success-color);
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.access-list li strong {
+    color: var(--primary-color);
+}
+
+.contact-info {
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contact-info p {
+    color: var(--info-color);
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact-info i {
+    font-size: 1.1rem;
+}
+
+/* Responsive para mensaje de acceso restringido */
+@media (max-width: 768px) {
+    .access-restricted-message {
+        padding: 30px 20px;
+        margin: 20px 0;
+    }
+    
+    .restricted-icon {
+        font-size: 3rem;
+    }
+    
+    .access-restricted-message h2 {
+        font-size: 1.6rem;
+    }
+    
+    .restricted-description {
+        font-size: 1.1rem;
+    }
+    
+    .semester-badge {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .access-info {
+        padding: 20px;
+    }
+    
+    .access-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .access-list li {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .contact-info {
+        padding: 15px;
+    }
+    
+    .contact-info p {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
 } 

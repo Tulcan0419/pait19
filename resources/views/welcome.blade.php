@@ -55,7 +55,7 @@
     <!-- Sección Hero -->
     <section id="hero" class="hero-section d-flex align-items-center">
         <div class="container text-center">
-            <h1 class="hero-title animate__animated animate__fadeInDown">Sistema de Gestion de Practicas Profesionales</h1>
+            <h1 class="hero-title animate__animated animate__fadeInDown">Sistema de Gestion de Practicas Preprofesionales y Profesionales</h1>
             <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-0.5s">Plataforma integral para la
                 gestión</p>
             <div class="mt-5 animate__animated animate__zoomIn animate__delay-1s">
