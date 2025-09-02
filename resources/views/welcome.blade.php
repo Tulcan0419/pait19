@@ -45,9 +45,6 @@
                         <a class="nav-link" href="#acceso">Acceso</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#caracteristicas">Características</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
                 </ul>
@@ -58,12 +55,10 @@
     <!-- Sección Hero -->
     <section id="hero" class="hero-section d-flex align-items-center">
         <div class="container text-center">
-            <h1 class="hero-title animate__animated animate__fadeInDown">Sistema de Gestión Educativa</h1>
+            <h1 class="hero-title animate__animated animate__fadeInDown">Sistema de Gestion de Practicas Profesionales</h1>
             <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-0.5s">Plataforma integral para la
-                gestión académica y el aprendizaje</p>
+                gestión</p>
             <div class="mt-5 animate__animated animate__zoomIn animate__delay-1s">
-                <a href="#acceso" class="btn btn-light btn-lg mr-3">Acceder al Sistema</a>
-                <a href="#caracteristicas" class="btn btn-outline-light btn-lg">Explorar Características</a>
             </div>
         </div>
     </section>
@@ -137,86 +132,27 @@
 
 
     <!-- Sección de características -->
-    <section id="caracteristicas" class="py-5 features-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="font-weight-bold">Características Principales</h2>
-                <p class="text-muted lead">Descubre las funcionalidades clave que hacen de Tecnológico Traversari - ISTPET tu mejor aliado
-                    educativo.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card feature-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h5 class="card-title">Gestión de Horarios</h5>
-                            <p class="card-text">Organiza y visualiza tus horarios de clase, eventos y actividades
-                                académicas de manera intuitiva y centralizada.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card feature-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-tasks"></i>
-                            <h5 class="card-title">Tareas y Evaluaciones</h5>
-                            <p class="card-text">Entrega y califica tareas, realiza exámenes en línea y gestiona el
-                                progreso académico de forma eficiente y en tiempo real.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card feature-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-chart-line"></i>
-                            <h5 class="card-title">Reportes y Análisis</h5>
-                            <p class="card-text">Genera reportes detallados del rendimiento académico, asistencia y
-                                otras métricas clave para una toma de decisiones informada.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card feature-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h5 class="card-title">Acceso Multiplataforma</h5>
-                            <p class="card-text">Disfruta de la plataforma desde cualquier dispositivo: computadoras,
-                                tablets y smartphones, con una interfaz responsiva.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Footer -->
     <footer id="contacto">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mb-4 mb-md-0">
                     <h5 class="mb-4"><i class="fas fa-graduation-cap mr-2"></i>Tecnológico Traversari - ISTPET</h5>
-                    <p class="text-muted">Tecnológico Traversari - ISTPET
-                        es una plataforma de gestión educativa de vanguardia, diseñada para
-                        optimizar la experiencia de aprendizaje y enseñanza, fomentando la colaboración y el éxito
-                        académico.</p>
+                    <p class="text-muted">El Sistema de Gestión de Prácticas Profesionales del Tecnológico Traversari - ISTPET es una plataforma web integral desarrollada para centralizar, optimizar y digitalizar todos los procesos relacionados con las prácticas preprofesionales de los estudiantes.</p>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h5 class="mb-4">Enlaces Rápidos</h5>
                     <div class="footer-links d-flex flex-column">
                         <a href="#hero">Inicio</a>
                         <a href="#acceso">Acceso</a>
-                        <a href="#caracteristicas">Características</a>
-                        <a href="#">Política de Privacidad</a>
-                        <a href="#">Términos de Servicio</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <h5 class="mb-4">Conéctate con Nosotros</h5>
                     <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/institutotraversari/?locale=es_LA" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tecnologico_traversari?fbclid=IwY2xjawMjM_RleHRuA2FlbQIxMABicmlkETFXd0JINkFmanE0MXNURnJlAR7XhMkZ7eSvFazwgbcIJ2wwhtuf-Q7aOga8edzeV6yQ7mQ5M4MzmXwFDR4DHw_aem_NWev_ZrVk-0b7Q0IvyvFLQ" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                     <p class="text-muted mt-3">Email: info@istpet.com</p>
                     <p class="text-muted">Tel: +123 456 7890</p>

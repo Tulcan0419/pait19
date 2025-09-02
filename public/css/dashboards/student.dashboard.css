@@ -32,6 +32,17 @@ body {
     background-color: var(--bg-light);
     width: 100%;
     overflow-x: hidden; /* Prevenir scroll horizontal */
+    transition: margin-left 0.3s ease;
+}
+
+.dashboard-container.with-sidebar {
+    margin-left: 280px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container.with-sidebar {
+        margin-left: 0;
+    }
 }
 
 /* Contenido Principal */
