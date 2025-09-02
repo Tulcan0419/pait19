@@ -1,0 +1,379 @@
+/* Estilos para el sistema de calificaciones */
+
+.grade-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grade-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.grade-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 1.5rem;
+}
+
+.grade-stat {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.grade-stat h3 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.grade-stat p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.grade-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.grade-badge.excellent {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.grade-badge.good {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.grade-badge.poor {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.grade-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grade-table th {
+    background-color: #f8f9fa;
+    border: none;
+    font-weight: 600;
+    color: #495057;
+    padding: 1rem;
+}
+
+.grade-table td {
+    border: none;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.grade-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.grade-form {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grade-form .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.grade-form .form-control,
+.grade-form .form-select {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 0.75rem;
+    transition: border-color 0.2s ease;
+}
+
+.grade-form .form-control:focus,
+.grade-form .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.grade-modal .modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.grade-modal .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    border: none;
+}
+
+.grade-modal .modal-title {
+    font-weight: 600;
+}
+
+.grade-summary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.grade-summary h4 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.grade-summary-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.grade-summary-stat {
+    flex: 1;
+}
+
+.grade-summary-stat h5 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.grade-summary-stat p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.grade-progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.grade-progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.grade-progress-bar.excellent {
+    background: linear-gradient(90deg, #28a745, #20c997);
+}
+
+.grade-progress-bar.good {
+    background: linear-gradient(90deg, #ffc107, #fd7e14);
+}
+
+.grade-progress-bar.poor {
+    background: linear-gradient(90deg, #dc3545, #e83e8c);
+}
+
+.grade-chart {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.grade-filter {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.grade-filter .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.grade-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.grade-actions .btn {
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.grade-actions .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.grade-empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6c757d;
+}
+
+.grade-empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.grade-empty-state h5 {
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.grade-empty-state p {
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grade-summary-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .grade-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .grade-actions .btn {
+        margin-bottom: 0.5rem;
+    }
+    
+    .grade-table {
+        font-size: 0.875rem;
+    }
+    
+    .grade-table th,
+    .grade-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grade-card {
+    animation: fadeInUp 0.5s ease;
+}
+
+.grade-card:nth-child(1) { animation-delay: 0.1s; }
+.grade-card:nth-child(2) { animation-delay: 0.2s; }
+.grade-card:nth-child(3) { animation-delay: 0.3s; }
+.grade-card:nth-child(4) { animation-delay: 0.4s; }
+.grade-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Estados de carga */
+.grade-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.grade-loading .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #667eea;
+}
+
+/* Tooltips personalizados */
+.grade-tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.grade-tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+/* Estilos para notificaciones */
+.grade-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.grade-notification.success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.grade-notification.error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.grade-notification.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+} 

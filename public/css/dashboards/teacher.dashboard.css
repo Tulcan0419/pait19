@@ -1,0 +1,557 @@
+/* Variables CSS para una gestión de colores más sencilla */
+:root {
+    --primary-color: #4361ee; /* Azul principal */
+    --secondary-color: #3f37c9; /* Azul oscuro */
+    --accent-color: #4895ef; /* Azul claro */
+    --text-dark: #212529; /* Texto oscuro */
+    --text-light: #6c757d; /* Texto gris */
+    --bg-light: #f5f7ff; /* Fondo muy claro */
+    --card-bg: #ffffff; /* Fondo de tarjeta */
+    --border-color: #e0e0e0; /* Color de borde */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Contenedor Principal del Dashboard */
+.dashboard-container {
+    min-height: 100vh;
+    background-color: var(--bg-light);
+}
+
+/* Contenido Principal */
+.main-content {
+    min-height: 100vh;
+    padding: 0;
+    background-color: var(--bg-light);
+}
+
+/* Navbar Superior - Estilos específicos para override Bootstrap */
+.top-navbar {
+    background-color: var(--card-bg) !important;
+    padding: 0 30px !important;
+    box-shadow: 0 2px 10px var(--shadow-light) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    height: 70px !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    flex-direction: row !important;
+}
+
+.navbar-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 40px !important;
+    flex: 1 !important;
+    flex-direction: row !important;
+}
+
+.navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-color) !important;
+    flex-shrink: 0 !important;
+    flex-direction: row !important;
+}
+
+.navbar-brand i {
+    font-size: 1.5rem !important;
+}
+
+.brand-text {
+    color: var(--text-dark) !important;
+}
+
+.navbar-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 12px 16px !important;
+    color: var(--text-light) !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    transition: all var(--transition-speed) ease !important;
+    position: relative !important;
+    white-space: nowrap !important;
+    flex-direction: row !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(67, 97, 238, 0.1) !important;
+    text-decoration: none !important;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    background-color: rgba(67, 97, 238, 0.1) !important;
+    font-weight: 600 !important;
+}
+
+.nav-link i {
+    font-size: 1rem !important;
+}
+
+.navbar-right {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    flex-direction: row !important;
+}
+
+.user-profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    position: relative !important;
+    flex-direction: row !important;
+}
+
+.user-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.user-name {
+    font-weight: 600 !important;
+    color: var(--text-dark) !important;
+    font-size: 0.9rem !important;
+}
+
+.user-role {
+    font-size: 0.8rem !important;
+    color: var(--text-light) !important;
+}
+
+/* Contenedor de foto de perfil */
+.profile-photo-container {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.profile-photo {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid var(--border-color) !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.profile-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    transition: opacity var(--transition-speed) ease !important;
+}
+
+.profile-photo-container:hover .profile-overlay {
+    opacity: 1 !important;
+}
+
+.change-photo-btn {
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 0.9rem !important;
+}
+
+.change-photo-btn:hover {
+    color: var(--accent-color) !important;
+}
+
+/* User Dropdown */
+.user-dropdown {
+    position: relative !important;
+}
+
+.dropdown-toggle {
+    background: none !important;
+    border: none !important;
+    color: var(--text-light) !important;
+    font-size: 0.8rem !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    border-radius: 4px !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.dropdown-toggle:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(67, 97, 238, 0.1) !important;
+}
+
+.dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px var(--shadow-medium) !important;
+    min-width: 200px !important;
+    z-index: 1000 !important;
+    margin-top: 5px !important;
+}
+
+.dropdown-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px 16px !important;
+    color: var(--text-dark) !important;
+    text-decoration: none !important;
+    transition: background-color var(--transition-speed) ease !important;
+    font-size: 0.9rem !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-light) !important;
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+}
+
+.dropdown-item i {
+    width: 16px !important;
+    text-align: center !important;
+}
+
+.dropdown-divider {
+    margin: 8px 0 !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none !important;
+    background: none !important;
+    border: none !important;
+    color: var(--text-dark) !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    border-radius: 4px !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.mobile-menu-toggle:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(67, 97, 238, 0.1) !important;
+}
+
+/* Mobile Navigation */
+.navbar-collapse {
+    display: none !important;
+}
+
+.mobile-nav {
+    background: var(--card-bg) !important;
+    border-top: 1px solid var(--border-color) !important;
+    padding: 20px !important;
+    box-shadow: 0 2px 10px var(--shadow-light) !important;
+}
+
+.mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 15px 20px !important;
+    color: var(--text-dark) !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    margin-bottom: 5px !important;
+    transition: all var(--transition-speed) ease !important;
+    font-weight: 500 !important;
+}
+
+.mobile-nav-link:hover {
+    background-color: var(--bg-light) !important;
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+}
+
+.mobile-nav-link.active {
+    background-color: rgba(67, 97, 238, 0.1) !important;
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+}
+
+.mobile-nav-link i {
+    width: 20px !important;
+    text-align: center !important;
+}
+
+.mobile-logout {
+    border-top: 1px solid var(--border-color) !important;
+    padding-top: 15px !important;
+    margin-top: 15px !important;
+}
+
+/* Grid del Dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.card-item {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--border-color);
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.card-item .icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.card-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.card-item p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card-item .btn-view {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.card-item .btn-view:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Teacher Dashboard Grid */
+.teacher-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.teacher-card-item {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--border-color);
+}
+
+.teacher-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.teacher-card-item .icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.teacher-card-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.teacher-card-item p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.teacher-card-item .btn-view {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.teacher-card-item .btn-view:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Disabled Menu Items */
+.disabled-menu-item {
+    opacity: 0.6;
+}
+
+.disabled-menu-item a {
+    color: var(--text-light) !important;
+    cursor: not-allowed !important;
+}
+
+.disabled-menu-item a:hover {
+    background-color: transparent !important;
+    color: var(--text-light) !important;
+}
+
+.disabled-menu-item a[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background: var(--text-dark);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 1000;
+}
+
+/* Access Notice */
+.access-notice {
+    display: block;
+    color: #f44336;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .navbar-nav {
+        gap: 2px !important;
+    }
+    
+    .nav-link {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .nav-link span {
+        display: none !important;
+    }
+    
+    .nav-link i {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-left {
+        gap: 20px !important;
+    }
+    
+    .brand-text {
+        display: none !important;
+    }
+    
+    .navbar-nav {
+        display: none !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: block !important;
+    }
+    
+    .navbar-collapse.show {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-navbar {
+        padding: 0 20px !important;
+        height: 60px !important;
+    }
+    
+    .user-info {
+        display: none !important;
+    }
+    
+    .user-dropdown {
+        display: none !important;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .teacher-dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .profile-photo {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .change-photo-btn {
+        font-size: 0.8rem !important;
+    }
+} 

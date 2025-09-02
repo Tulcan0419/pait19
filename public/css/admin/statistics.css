@@ -1,0 +1,325 @@
+/* Variables CSS para una gestión de colores más sencilla */
+:root {
+    --primary-color: #1a2746; /* Azul principal */
+    --secondary-color: #3e5ba9; /* Azul secundario */
+    --success-color: #28a745; /* Verde */
+    --info-color: #17a2b8; /* Cyan */
+    --warning-color: #ffc107; /* Amarillo */
+    --danger-color: #dc3545; /* Rojo */
+    --light-color: #f8f9fa; /* Gris claro */
+    --dark-color: #343a40; /* Gris oscuro */
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Contenedor principal */
+.admin-statistics-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: #f7f9fb;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0, 32, 64, 0.08);
+    font-family: 'Poppins', Arial, sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+/* Título principal */
+.admin-statistics-container h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Tarjetas de estadísticas */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 16px rgba(26, 39, 70, 0.07);
+    border: none;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 8px 32px rgba(26, 39, 70, 0.18);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Números grandes */
+.card-body h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.card-body h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+/* Colores de texto */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-success {
+    color: var(--success-color) !important;
+}
+
+.text-info {
+    color: var(--info-color) !important;
+}
+
+.text-warning {
+    color: var(--warning-color) !important;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.8em;
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-success {
+    background-color: var(--success-color) !important;
+}
+
+.bg-warning {
+    background-color: var(--warning-color) !important;
+}
+
+.bg-info {
+    background-color: var(--info-color) !important;
+}
+
+/* Botones */
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 39, 70, 0.2);
+}
+
+.btn-outline-success {
+    color: var(--success-color);
+    border: 2px solid var(--success-color);
+    background: transparent;
+}
+
+.btn-outline-success:hover {
+    background: var(--success-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}
+
+.btn-outline-warning {
+    color: var(--warning-color);
+    border: 2px solid var(--warning-color);
+    background: transparent;
+}
+
+.btn-outline-warning:hover {
+    background: var(--warning-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.btn-outline-secondary {
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--dark-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 58, 64, 0.2);
+}
+
+/* Distribución de semestres */
+.small {
+    font-size: 0.875rem;
+    color: var(--dark-color);
+}
+
+.small div {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.small div:last-child {
+    border-bottom: none;
+}
+
+/* Flexbox utilities */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+/* Espaciado */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+/* Tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Utilidades adicionales */
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-statistics-container {
+        padding: 20px 16px;
+        margin: 20px auto;
+    }
+    
+    .admin-statistics-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card-body h2 {
+        font-size: 2rem;
+    }
+    
+    .card-body h3 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-statistics-container {
+        padding: 16px 12px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        padding: 1rem;
+    }
+} 
