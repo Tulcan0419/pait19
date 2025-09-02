@@ -29,17 +29,6 @@ body {
 .dashboard-container {
     min-height: 100vh;
     background-color: var(--bg-light);
-    transition: margin-left 0.3s ease;
-}
-
-.dashboard-container.with-sidebar {
-    margin-left: 280px;
-}
-
-@media (max-width: 768px) {
-    .dashboard-container.with-sidebar {
-        margin-left: 0;
-    }
 }
 
 /* Contenido Principal */

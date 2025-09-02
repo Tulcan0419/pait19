@@ -15,19 +15,15 @@
         <div class="auth-left">
             <div>
                 <h1>Bienvenido al Tecnológico Traversari - ISTPET</h1>
-                <p>Tu plataforma integral para la gestión académica. Accede a tus cursos, tareas y calificaciones.</p>
+                <p>Tu plataforma integral para la gestión académica de prácticas Preprofesionales.</p>
                 <div class="features mt-5">
                     <div class="feature-item">
                         <i class="fas fa-book-open"></i>
-                        <span>Material de estudio completo</span>
+                        <span>Plantillas Y Guias de prácticas Preprofesionales</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-tasks"></i>
-                        <span>Seguimiento de tareas</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Reportes de progreso</span>
+                        <span>Sube tus documentos de una forma fácil y segura</span>
                     </div>
                 </div>
             </div>
@@ -65,7 +61,6 @@
                         <label for="password" class="form-label">Contraseña</label>
                         <i class="fas fa-lock"></i>
                         <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password" placeholder="••••••••">
-                        <small class="text-muted d-block mt-1 text-end"><a href="{{ route('estudiante.password.request') }}">¿Olvidaste tu contraseña?</a></small>
                     </div>
 
                     <div class="form-check">
@@ -78,9 +73,7 @@
                     </button>
                 </form>
 
-                <div class="auth-footer">
-                    ¿No tienes cuenta? <a href="{{ route('estudiante.register') }}">Regístrate aquí</a>
-                </div>
+                
             </div>
         </div>
     </div>

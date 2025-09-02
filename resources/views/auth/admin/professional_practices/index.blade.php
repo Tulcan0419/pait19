@@ -87,7 +87,7 @@
                 <i class="fas fa-search"></i>
                 <h3>Buscar Estudiante</h3>
             </div>
-            <form action="{{ route('coordinador.professional_practices.index') }}" method="GET" class="search-form">
+            <form action="{{ route('coordinador.professional_practices.index') }}" method="GET" class="search-form" id="searchForm">
                 @if($selectedCareer)
                     <input type="hidden" name="career" value="{{ $selectedCareer }}">
                 @endif
@@ -96,7 +96,8 @@
                            name="search" 
                            value="{{ $searchTerm }}" 
                            placeholder="Buscar por nombre o código de estudiante..."
-                           class="search-input">
+                           class="search-input"
+                           id="searchInput">
                     <button type="submit" class="search-btn">
                         <i class="fas fa-search"></i>
                     </button>
@@ -110,6 +111,61 @@
             </form>
         </div>
     </div>
+
+    <!-- Resultados de búsqueda -->
+    @if($searchTerm && !$selectedCareer)
+        <div class="search-results-section">
+            <div class="search-results-header">
+                <h3>
+                    <i class="fas fa-search"></i>
+                    Resultados de búsqueda para: "{{ $searchTerm }}"
+                </h3>
+                <p>Se encontraron estudiantes en las siguientes carreras:</p>
+            </div>
+            
+            @if($studentsWithDocuments->isEmpty())
+                <div class="no-results">
+                    <div class="no-results-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>No se encontraron resultados</h4>
+                    <p>No hay estudiantes que coincidan con "{{ $searchTerm }}"</p>
+                </div>
+            @else
+                <div class="search-results-grid">
+                    @foreach($studentsWithDocuments as $careerData)
+                        <div class="search-result-card">
+                            <div class="result-card-header">
+                                <div class="career-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="career-info">
+                                    <h4>{{ $careerData['career_title'] }}</h4>
+                                    <div class="result-stats">
+                                        <span class="stat">
+                                            <i class="fas fa-users"></i>
+                                            {{ $careerData['total_students'] }} estudiantes encontrados
+                                        </span>
+                                        <span class="stat">
+                                            <i class="fas fa-file-alt"></i>
+                                            {{ $careerData['total_documents'] }} documentos
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="result-card-actions">
+                                <a href="{{ route('coordinador.professional_practices.index', ['career' => $careerData['career'], 'search' => $searchTerm]) }}" 
+                                   class="btn btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Resultados
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    @endif
 
     <!-- Contenido Principal -->
     @if($selectedCareer)
@@ -403,6 +459,57 @@ window.onclick = function(event) {
 // Agregar listener para debugging
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Modal script loaded successfully');
+    
+    // Mejorar la funcionalidad de búsqueda
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchForm');
+    
+    if (searchInput && searchForm) {
+        // Agregar funcionalidad de búsqueda con Enter
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                searchForm.submit();
+            }
+        });
+        
+        // Agregar funcionalidad de búsqueda en tiempo real (opcional)
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const query = this.value.trim();
+            
+            // Solo buscar si hay al menos 2 caracteres
+            if (query.length >= 2) {
+                searchTimeout = setTimeout(() => {
+                    // Aquí podrías agregar búsqueda AJAX si lo deseas
+                    console.log('Búsqueda sugerida:', query);
+                }, 500);
+            }
+        });
+        
+        // Mejorar la experiencia visual
+        searchInput.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        searchInput.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+    }
+    
+    // Agregar animaciones suaves a las tarjetas de resultados
+    const resultCards = document.querySelectorAll('.search-result-card');
+    resultCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.3s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
 });
 </script>
 @endsection

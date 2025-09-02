@@ -78,8 +78,7 @@
                             <i class="fas fa-user-graduate"></i>
                         </div>
                         <h5 class="card-title">Estudiante</h5>
-                        <p class="card-text">Accede a tus cursos, tareas, calificaciones, recursos educativos y
-                            comunicados importantes en cualquier momento y lugar.</p>
+                        <p class="card-text">Sube Tus documentos de prácticas preprofesionales aquí.</p>
                         <a href="{{ route('estudiante.login') }}" class="btn btn-primary mt-auto">Iniciar Sesión</a>
                     </div>
                 </div>
@@ -92,8 +91,7 @@
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
                         <h5 class="card-title">Profesor</h5>
-                        <p class="card-text">Gestiona tus clases, asigna y evalúa tareas, comparte materiales didácticos
-                            y comunícate eficientemente con tus estudiantes.</p>
+                        <p class="card-text">Gestiona tus prácticas preprofesionales aquí.</p>
                         <a href="{{ route('profesor.login') }}" class="btn btn-success mt-auto">Iniciar Sesión</a>
                     </div>
                 </div>
@@ -105,8 +103,7 @@
                             <i class="fas fa-user-shield"></i>
                         </div>
                         <h5 class="card-title">Administrador</h5>
-                        <p class="card-text">Administra el sistema, gestiona usuarios, cursos, reportes y configura
-                            parámetros institucionales para un control total.</p>
+                        <p class="card-text">Administra el sistema, gestiona usuarios.</p>
                         <a href="{{ route('admin.login') }}" class="btn btn-danger mt-auto">Iniciar Sesión</a>
                     </div>
                 </div>
@@ -120,7 +117,7 @@
                             <i class="fas fa-user-tie"></i> {{-- Icono para coordinador --}}
                         </div>
                         <h5 class="card-title">Coordinador</h5>
-                        <p class="card-text">Accede a la gestión de programas académicos, supervisión de docentes y estudiantes, y administración de recursos educativos.</p>
+                        <p class="card-text">Accede a la gestión de prácticas preprofesionales.</p>
                         <a href="{{ route('coordinador.login') }}" class="btn btn-info mt-auto">Iniciar Sesión</a> {{-- Botón con ruta al login del coordinador --}}
                     </div>
                 </div>

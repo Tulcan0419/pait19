@@ -57,9 +57,11 @@ class TeacherProfessionalPracticesController extends Controller
                 
                 // Aplicar filtro de búsqueda si se proporciona
                 if ($searchTerm) {
+                    $searchTerm = trim($searchTerm);
                     $studentsQuery->where(function($query) use ($searchTerm) {
                         $query->where('name', 'LIKE', "%{$searchTerm}%")
-                              ->orWhere('student_code', 'LIKE', "%{$searchTerm}%");
+                              ->orWhere('student_code', 'LIKE', "%{$searchTerm}%")
+                              ->orWhereRaw("LOWER(name) LIKE LOWER(?)", ["%{$searchTerm}%"]);
                     });
                 }
                 
@@ -83,9 +85,11 @@ class TeacherProfessionalPracticesController extends Controller
                     
                     // Aplicar filtro de búsqueda si se proporciona
                     if ($searchTerm) {
+                        $searchTerm = trim($searchTerm);
                         $studentsInCareerQuery->where(function($query) use ($searchTerm) {
                             $query->where('name', 'LIKE', "%{$searchTerm}%")
-                                  ->orWhere('student_code', 'LIKE', "%{$searchTerm}%");
+                                  ->orWhere('student_code', 'LIKE', "%{$searchTerm}%")
+                                  ->orWhereRaw("LOWER(name) LIKE LOWER(?)", ["%{$searchTerm}%"]);
                         });
                     }
                     
@@ -95,13 +99,16 @@ class TeacherProfessionalPracticesController extends Controller
                         return $student->documents->count();
                     });
                     
-                    $studentsWithDocuments->push([
-                        'career' => $career,
-                        'career_title' => $this->careerTitles[$career] ?? ucfirst($career),
-                        'students' => $studentsInCareer,
-                        'total_students' => $studentsInCareer->count(),
-                        'total_documents' => $totalDocuments
-                    ]);
+                    // Solo agregar la carrera si tiene estudiantes que coinciden con la búsqueda
+                    if ($studentsInCareer->count() > 0) {
+                        $studentsWithDocuments->push([
+                            'career' => $career,
+                            'career_title' => $this->careerTitles[$career] ?? ucfirst($career),
+                            'students' => $studentsInCareer,
+                            'total_students' => $studentsInCareer->count(),
+                            'total_documents' => $totalDocuments
+                        ]);
+                    }
                 }
             }
 

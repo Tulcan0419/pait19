@@ -22,10 +22,6 @@
                         <span>Gestión académica</span>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Seguimiento de indicadores</span>
-                    </div>
-                    <div class="feature-item">
                         <i class="fas fa-users"></i>
                         <span>Administración docente</span>
                     </div>

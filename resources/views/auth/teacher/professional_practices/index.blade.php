@@ -12,14 +12,6 @@
             
             <!-- Navegación rápida -->
             <div class="quick-navigation">
-                <a href="{{ route('profesor.professional_practices.statistics') }}" class="nav-btn stats-btn">
-                    <i class="fas fa-chart-bar"></i>
-                    Estadísticas
-                </a>
-                <a href="{{ route('profesor.professional_practices.comments') }}" class="nav-btn comments-btn">
-                    <i class="fas fa-comments"></i>
-                    Comentarios
-                </a>
                 <a href="{{ route('profesor.dashboard') }}" class="nav-btn">
                     <i class="fas fa-home"></i>
                     Dashboard
@@ -92,7 +84,7 @@
             <!-- Campo de búsqueda -->
             <div class="search-card">
                 <h3><i class="fas fa-search"></i> Buscar Estudiante</h3>
-                <form action="{{ route('profesor.professional_practices.index') }}" method="GET" class="search-form">
+                <form action="{{ route('profesor.professional_practices.index') }}" method="GET" class="search-form" id="searchForm">
                     @if($selectedCareer)
                         <input type="hidden" name="career" value="{{ $selectedCareer }}">
                     @endif
@@ -101,7 +93,8 @@
                                name="search" 
                                value="{{ $searchTerm }}" 
                                placeholder="Buscar por nombre o código de estudiante..."
-                               class="search-input">
+                               class="search-input"
+                               id="searchInput">
                         <button type="submit" class="search-btn">
                             <i class="fas fa-search"></i>
                         </button>
@@ -115,12 +108,75 @@
                 </form>
             </div>
 
+            <!-- Resultados de búsqueda -->
+            @if($searchTerm && !$selectedCareer)
+                <div class="search-results-section">
+                    <div class="search-results-header">
+                        <h3>
+                            <i class="fas fa-search"></i>
+                            Resultados de búsqueda para: "{{ $searchTerm }}"
+                        </h3>
+                        <p>Se encontraron estudiantes en las siguientes carreras:</p>
+                    </div>
+                    
+                    @if($studentsWithDocuments->isEmpty())
+                        <div class="no-results">
+                            <div class="no-results-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4>No se encontraron resultados</h4>
+                            <p>No hay estudiantes que coincidan con "{{ $searchTerm }}"</p>
+                        </div>
+                    @else
+                        <div class="search-results-grid">
+                            @foreach($studentsWithDocuments as $careerData)
+                                <div class="search-result-card">
+                                    <div class="result-card-header">
+                                        <div class="career-icon">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div class="career-info">
+                                            <h4>{{ $careerData['career_title'] }}</h4>
+                                            <div class="result-stats">
+                                                <span class="stat">
+                                                    <i class="fas fa-users"></i>
+                                                    {{ $careerData['total_students'] }} estudiantes encontrados
+                                                </span>
+                                                <span class="stat">
+                                                    <i class="fas fa-file-alt"></i>
+                                                    {{ $careerData['total_documents'] }} documentos
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="result-card-actions">
+                                        <a href="{{ route('profesor.professional_practices.index', ['career' => $careerData['career'], 'search' => $searchTerm]) }}" 
+                                           class="btn btn-primary">
+                                            <i class="fas fa-eye"></i>
+                                            Ver Resultados
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            @endif
+
             @if($selectedCareer)
                 <!-- Vista detallada de una carrera específica -->
                 <div class="document-list-card">
                     <h3>
                         <i class="fas fa-folder-open"></i>
-                        Documentos de {{ $careersForSelect[$selectedCareer] ?? $selectedCareer }}
+                        @php
+                            $careerName = 'Carrera';
+                            if ($selectedCareer && is_string($selectedCareer) && isset($careersForSelect[$selectedCareer])) {
+                                $careerName = $careersForSelect[$selectedCareer];
+                            } elseif ($selectedCareer && is_string($selectedCareer)) {
+                                $careerName = $selectedCareer;
+                            }
+                        @endphp
+                        Documentos de {{ $careerName }}
                     </h3>
                     @if($studentsWithDocuments->isEmpty())
                         <div class="no-documents-message">
@@ -328,6 +384,71 @@
                     alert.remove();
                 }, 300);
             }, 5000);
+        });
+        
+        // Mejorar la funcionalidad de búsqueda
+        const searchInput = document.getElementById('searchInput');
+        const searchForm = document.getElementById('searchForm');
+        
+        if (searchInput && searchForm) {
+            // Agregar funcionalidad de búsqueda con Enter
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    searchForm.submit();
+                }
+            });
+            
+            // Agregar funcionalidad de búsqueda en tiempo real (opcional)
+            let searchTimeout;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                const query = this.value.trim();
+                
+                // Solo buscar si hay al menos 2 caracteres
+                if (query.length >= 2) {
+                    searchTimeout = setTimeout(() => {
+                        // Aquí podrías agregar búsqueda AJAX si lo deseas
+                        console.log('Búsqueda sugerida:', query);
+                    }, 500);
+                }
+            });
+            
+            // Mejorar la experiencia visual
+            searchInput.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            searchInput.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        }
+        
+        // Agregar animaciones suaves a las tarjetas de resultados
+        const resultCards = document.querySelectorAll('.search-result-card');
+        resultCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+        
+        // Mejorar la experiencia de las tarjetas de carrera
+        const careerCards = document.querySelectorAll('.career-card');
+        careerCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            });
         });
     });
 </script>
